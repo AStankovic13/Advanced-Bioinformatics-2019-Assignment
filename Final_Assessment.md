@@ -161,7 +161,7 @@ mtcars$gear<-as.factor(mtcars$gear)
 ggplot(mtcars, aes(x=gear,y=mpg,fill=gear)) + geom_boxplot()
 ```
 
-![](Final_Assessment_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+(https://github.com/AStankovic13/Advanced-Bioinformatics-2019-Assignment/blob/master/unnamed-chunk-4-1.png)
 
 
 ```r
@@ -212,7 +212,7 @@ plot(data=cars, dist~speed)
 abline(model)
 ```
 
-![](Final_Assessment_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+(https://github.com/AStankovic13/Advanced-Bioinformatics-2019-Assignment/blob/master/unnamed-chunk-6-1.png)
 
 
 ```r
@@ -267,6 +267,6 @@ x <- cars$additional_speed
 ggplot(cars, aes(additional_speed, dist)) + geom_point() + geom_smooth(method='lm', formula="y~0+x+I(x^2)") + labs(title ="Average reaction time", x="Additional Speed (seconds)", y="Distance (feet)")
 ```
 
-![](Final_Assessment_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+(https://github.com/AStankovic13/Advanced-Bioinformatics-2019-Assignment/blob/master/unnamed-chunk-8-1.png)
 
 
