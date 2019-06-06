@@ -1,0 +1,103 @@
+---
+title: "Advanced Bioinformatics 2019 Assessment"
+author: '9513'
+date: "06/06/2019"
+output: 
+  html_document:
+   keep_md: yes  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+"Task 1"
+sum(5:55)
+```
+```{r}
+"Task 2"
+sumfun<-function(n){
+  sum(5:n)
+}
+sumfun(10)
+sumfun(20)
+sumfun(100)
+```
+
+```{r}
+"Task 3"
+a=1
+b=1
+
+print(a)
+print(b)
+
+for(i in 1:12) {
+  c=a+b
+  print(c)
+  a=b
+  b=c
+}
+```
+```{r}
+"Task 4"
+
+#Import ggplot2
+library(ggplot2)
+#Load the data
+data(mtcars)
+#Convert miles per gallon into a factor from numeric 
+mtcars$gear<-as.factor(mtcars$gear)
+#Generate a box plot of gear against mpg and color by gear 
+ggplot(mtcars, aes(x=gear,y=mpg,fill=gear)) + geom_boxplot()
+```
+
+```{r}
+"Task 5"
+#Fit a linear model with lm, with cars data (speed and breaking distance)
+model<-lm(dist~speed,data=cars)
+summary(model)
+```
+```{r}
+"Task 6"
+plot(data=cars, dist~speed)
+abline(model)
+```
+
+```{r}
+"Task 7 - part 1"
+library(ggplot2)
+data("cars")
+additional_speed <- cars$speed * (5280/3600)
+lm_2 <- lm(dist ~ 0 + additional_speed + I(additional_speed^2), cars)
+summary(lm_2)
+```
+```{r}
+"Task 7 - part 2"
+y <- cars$dist
+x <- cars$additional_speed
+ggplot(cars, aes(additional_speed, dist)) + geom_point() + geom_smooth(method='lm', formula="y~0+x+I(x^2)") + labs(title ="Average reaction time", x="Additional Speed (seconds)", y="Distance (feet)")
+```
+
+
